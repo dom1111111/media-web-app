@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="./static/style.css"/>
+        <title>Title Here</title>   
+    </head>
+    <body>
+        <!-- menu -->
+        <div id="menu-container">
+            <div id="menu" class="bordered">
+                <button id="new-entry-view-button" type="button" title="create a new entry">+</button>
+                <button id="search-mode-button" type="button" title="toggle search mode">Advanced Search</button>
+                <form id="search-form-simple", action="#">
+                    <button id="simple-search-button" type="submit" title="search">🔍</button>
+                    <input id="search-bar" type="search" name="search" placeholder="search..." maxlength="200">
+                </form>
+                <form id="search-form-advanced", action="#">
+                    <div class="search-advanced-row">
+                        <span class="search-form-section">
+                            <label for="search-title">Title</label>
+                            <input type="text" name="title" id="search-title" maxlength="200">
+                        </span>
+                        <span class="search-form-section">
+                            <label for="search-description">Description</label>
+                            <input type="text" name="description" id="search-description" maxlength="500">
+                        </span>
+                    </div>
+                    <div class="search-advanced-row">
+                        <span class="search-form-section">
+                            <label for="search-type">Type</label>
+                            <select name="type" id="search-type">
+                                <option value=""></option>
+                                <option value="movie">Movie</option>
+                                <option value="show">Show</option>
+                                <option value="video">Video</option>
+                            </select>
+                        </span>
+                        <span class="search-form-section">
+                            <label for="search-genre">Genre</label>
+                            <input type="text" name="genre" id="search-genre">
+                        </span>
+                        <span class="search-form-section">
+                            <label for="search-length-start">Length</label>
+                            <input class="num-box" type="number" name="length-start" min="0" id="search-length-start">
+                            <span>-</span>
+                            <input class="num-box" type="number" name="length-stop" min="1" id="search-length-stop">
+                        </span>
+                        <span class="search-form-section">
+                            <label for="search-released-start">Released</label>
+                            <input class="num-box" type="number" name="released-start" min="0" id="search-released-start">
+                            <span>-</span>
+                            <input class="num-box" type="number" name="released-stop" min="1" id="search-released-stop">
+                        </span>
+                    </div>
+                    <button id="advanced-search-button" type="submit">Search</button>
+                </form>
+
+            </div>
+        </div>
+        <!-- browser section -->
+        <div id="browser">
+            <div class="file bordered">
+                <img class="file-thumbnail" src="./static/resources/file_icon_500_500.svg" alt="file thumbnail image">
+                <div class="file-text">
+                    <span class="file-title">Title Goes Here</span>
+                    <p class="file-description">Description goes here.</p>
+                </div>
+                <div class="file-controls">
+                    <button class="file-download" type="button">DOWNLOAD</button>
+                    <!-- <button class="file-edit" type="button">edit</button> -->
+                </div>
+            </div>
+        </div>
+        <!-- new entry window -->
+        <div id="new-entry-page-container">
+            <div id="new-entry-box" class="bordered">
+                <button id="new-entry-exit-button" class="bordered" type="button" title="exit">x</button>
+                <form id="new-entry-form" action="#">
+                    <span class="new-entry-section">
+                        <label for="new-entry-title">Title</label>
+                        <input type="text" name="title" id="new-entry-title" maxlength="100">
+                    </span>
+                    <span class="new-entry-section">
+                        <label for="new-entry-description">Description</label>
+                        <textarea id="new-entry-description" name="description" id="" cols="50" rows="5", maxlength="500"></textarea>
+                    </span>
+                    <span class="new-entry-section">
+                        <label for="new-entry-type">Type</label>
+                        <select name="type" id="new-entry-type">
+                            <option value=""></option>
+                            <option value="movie">Movie</option>
+                            <option value="show">Show</option>
+                            <option value="video">Video</option>
+                        </select>
+                    </span>
+                    <span class="new-entry-section">
+                        <label for="new-entry-genre">Genre</label>
+                        <input type="text" name="genre" id="new-entry-genre">
+                    </span>
+                    <span class="new-entry-section">
+                        <label for="new-entry-length">Length (mins)</label>
+                        <input class="num-box" type="number" name="length" min="0" id="new-entry-length">
+                    </span>
+                    <span class="new-entry-section">
+                        <label for="new-entry-released">Year Released</label>
+                        <input class="num-box" type="number" name="released" min="0" id="new-entry-released">
+                    </span>
+                    <span class="new-entry-section">
+                        <label for="new-entry-path">Path</label>
+                        <input type="file" name="file-path" id="new-entry-path">
+                        <input type="text"></input>
+                    </span>
+                    <button id="new-entry-submit-button" type="submit">Create Entry</button>
+                </form>
+            </div>
+        </div>
+        <script src="./static/script.js"></script>
+    </body>
+</html>
