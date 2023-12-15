@@ -23,10 +23,10 @@ const fileTypeThumbnailMap = {
 
 ///////// Functions /////////
 
-async function getAllMediaEntries() {
-    const response = await fetch(backendURL + "/api/all", {
+async function getRecentMediaEntries() {
+    const response = await fetch(backendURL + "/api/recent", {
         method: "GET",
-        mode: "cors"
+        mode: "cors",
     });
     const entries = await response.json();
     return entries;
@@ -102,7 +102,7 @@ function toggleNewEntryView(entry) {                                            
 
 // renders the media entries into the page when loaded
 window.addEventListener("load", async () => {
-    const entries = await getAllMediaEntries();
+    const entries = await getRecentMediaEntries();
     await renderMediaEntries(entries);
 });
 
@@ -131,7 +131,7 @@ searchFormSimple.addEventListener("submit", async (e) => {
     const data = new FormData(e.target);
     const dataJSON = JSON.stringify(Object.fromEntries(data.entries()))         // converts FormData into object, and then object into JSON string
     try {
-        const response = await fetch(backendURL + "/api/search", {
+        const response = await fetch(backendURL + "/api/general-search", {
             method: "POST",
             mode: "cors",
             headers: {
